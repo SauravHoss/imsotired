@@ -10,14 +10,37 @@ public class tester
 
 		public static void merge() 
 		{
-		
-		}
-		
-		public static void merger() 
-		{
+			
 			
 		}
-	
+		
+		public static void merger(int [] arr, int [] left, int [] right, int fr, int fl, int x) 
+		{
+		//Precondition: Both arrays are sorted
+			
+			for(int j=0;j<arr.length;j++) 
+			{
+				fr = right[j];
+				
+				for(int i = 0; i< arr.length;i++ )
+				{
+					fl = left[i];
+					
+					if(fr>fl) 
+					{
+						arr[x]=fl;
+						x++;
+					}
+					else
+					{
+						arr[x]=fr;
+						x++;
+					}
+			}
+		
+		
+		}
+		}
 		public static void quick() 
 		{
 		
