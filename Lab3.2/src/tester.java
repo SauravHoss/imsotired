@@ -9,11 +9,11 @@ public class tester
 		merge(list1,list2);
 	}
 
-	public static  String[] merge(String [] list1, String [] list2) 
+	public static String [] merge(String [] list1, String [] list2) 
 	{
 		//Precondition : Both lists are sorted
 	
-		String [] full = new String [list1.length+list2.length];
+		String [] full = new String [list1.length+list2.length-2];
 		
 		int j = 0;
 		int l = 0;
@@ -43,19 +43,6 @@ public class tester
 		
 	}
 
-		//Swaps two items in an array of Strings
-		public static void swappers(String[] test, int x, int y) 
-		{
-			String holder = test[x];
-			test[x] = test[y];
-			test[y] = holder;
-		}
 		
-		//Swaps two items in an array of integers
-		public static void swapperi(int [] arr, int x, int y) 
-		{
-			int holder = arr[x];
-			arr[x] = arr[y];
-			arr[y] = holder;	
-		}
+	
 }
