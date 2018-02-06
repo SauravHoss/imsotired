@@ -4,59 +4,58 @@ public class tester
 
 	public static void main(String[] args) 
 	{
-		int [] test1 = {1, 4, 4, 5, 2, 4, 3, 17, 0};
+		String [] list1 = { "ab","bc" };
+		String [] list2 = { "bc", "ab"};
+		merge(list1,list2);
+	}
+
+	public static  String[] merge(String [] list1, String [] list2) 
+	{
+		//Precondition : Both lists are sorted
+	
+		String [] full = new String [list1.length+list2.length];
+		
+		int j = 0;
+		int l = 0;
+		int r = 0;
+		
+		while(j < full.length) 
+		{
+			if (list1[l].compareTo(list2[r]) > 0)
+			{
+				full[j] = list2[r];
+				j++;
+				r++;
+			}			
+			
+			else 
+			{
+				full[j] = list1[l];
+				j++;
+				l++;
+			}
+		}
+		return full;
+	}
+	
+	//public static int partition(int [] list) 
+	{
 		
 	}
 
-		public static void merge() 
+		//Swaps two items in an array of Strings
+		public static void swappers(String[] test, int x, int y) 
 		{
-			
-			
+			String holder = test[x];
+			test[x] = test[y];
+			test[y] = holder;
 		}
 		
-		public static void merger(int [] arr, int [] left, int [] right, int fr, int fl, int x) 
-		{
-		//Precondition: Both arrays are sorted
-			
-			for(int j=0;j<arr.length;j++) 
-			{
-				fr = right[j];
-				
-				for(int i = 0; i< arr.length;i++ )
-				{
-					fl = left[i];
-					
-					if(fr>fl) 
-					{
-						arr[x]=fl;
-						x++;
-					}
-					else
-					{
-						arr[x]=fr;
-						x++;
-					}
-			}
-		
-		
-		}
-		}
-		public static void quick() 
-		{
-		
-		}
-	
-		public static void partitioner() 
-		{
-			
-		}
-		
-	//Swaps two items in an array of integers
+		//Swaps two items in an array of integers
 		public static void swapperi(int [] arr, int x, int y) 
 		{
 			int holder = arr[x];
 			arr[x] = arr[y];
 			arr[y] = holder;	
 		}
-		
 }
