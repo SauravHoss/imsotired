@@ -8,8 +8,8 @@ public class tester
 		String [] list2 = { "va", "a", "v"};
 		merge(list1,list2);
 		
-		int [] listy = {1,9,5,2,5,6};
-	//	partition(listy, 1, 6);
+		int [] listy = {5,1,4,2,7,8,9};
+		partition(listy);
 	}
 
 	public static void merge(String [] list1, String [] list2) 
@@ -39,28 +39,41 @@ public class tester
 			}
 		}
 		//return full;
-		System.out.print(java.util.Arrays.toString(full));
+		System.out.println(java.util.Arrays.toString(full));
 	}
 	
-	 public static int partition( int [] arr, int low, int high)
-	 {
-		   int pivot = arr[0];  
-		 
-		    int i = (low - 1);
+	public static int partition(int [] list)
+	{
+		//Takes an array, picks first number as pivot and puts smaller numbers on left side, bigger on right
+		
+	    int base = list[0];    
+	    int temp = 0;
+	    int ni = 0;
+	    int last = list.length -1;
 
-		    for (int j = low; j <= high- 1; j++)
-		    {
-		       
-		        if (arr[j] <= pivot)
-		        {
-		            i++; 
-		            swapperi(arr, i, j);
-		        }
-		    }
-		    swapperi(arr, i+1, high);
-		    return (i + 1);
-		}
-
+	    for(int i = 1; i < list.length; i++)
+	    {
+	        if( list[i] <= base)
+	        {
+	            temp = list[i];
+	            list[i] = base;
+	            list[i-1] = temp;             
+	            ni = i;
+	        } 
+	        else if(list[i] > base && last > i)
+	        {
+	            temp = list[i];
+	            list[i] = list[last];
+	            list[last] = temp;
+	            last -= 1;
+	            i--;
+	        }
+	    }
+	    
+	    System.out.println(java.util.Arrays.toString(list));
+	    System.out.println(ni);
+	    return ni;
+	}
 	
 	//Swaps two items in an array of integers
 		public static void swapperi(int [] arr, int x, int y) 
@@ -69,7 +82,4 @@ public class tester
 			arr[x] = arr[y];
 			arr[y] = holder;	
 		}
-	
-	
-	
 }
