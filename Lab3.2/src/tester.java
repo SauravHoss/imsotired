@@ -4,17 +4,19 @@ public class tester
 
 	public static void main(String[] args) 
 	{
+		//Testing Code
 		String [] list1 = { "b","ab", "cc" };
-		String [] list2 = { "va", "a", "v"};
-		merge(list1,list2);
+		String [] list2 = { "a", "a", "c"};
+	//	merge(list1,list2);
 		
-		int [] listy = {5,1,4,2,7,8,9};
+		int [] listy = {3,4,2,7,12,22,0,1};
 		partition(listy);
 	}
 
 	public static void merge(String [] list1, String [] list2) 
 	{
 		//Precondition : Both lists are sorted
+		//Takes my will to live and destroys it
 	
 		String [] full = new String [(list1.length) + (list2.length)];
 		
@@ -22,22 +24,32 @@ public class tester
 		int l = 0;
 		int r = 0;
 		
-		while(l < list1.length && r < list2.length) 
+		while(l < list1.length && r < list2.length && j < full.length) 
 		{
-			if (list1[l].compareTo(list2[r]) > 0)
+			if (list1[l].compareTo(list2[r]) >= 0)
 			{
 				full[j] = list2[r];
 				j++;
 				r++;
 			}			
 			
-			else 
+			if(list1[l].compareTo(list2[r]) < 0) 
 			{
 				full[j] = list1[l];
 				j++;
 				l++;
 			}
 		}
+		
+		if(r == list2.length)
+		{
+			for(int m = j; m < full.length;m++);
+		}
+		if(l == list1.length)
+		{
+			for(int m = j; m < full.length;m++);
+		}
+		
 		//return full;
 		System.out.println(java.util.Arrays.toString(full));
 	}
@@ -49,11 +61,11 @@ public class tester
 	    int base = list[0];    
 	    int temp = 0;
 	    int ni = 0;
-	    int last = list.length -1;
+	    int last = list.length-1;
 
 	    for(int i = 1; i < list.length; i++)
 	    {
-	        if( list[i] <= base)
+	        if(list[i] <= base)
 	        {
 	            temp = list[i];
 	            list[i] = base;
@@ -65,13 +77,13 @@ public class tester
 	            temp = list[i];
 	            list[i] = list[last];
 	            list[last] = temp;
-	            last -= 1;
+	            last--;
 	            i--;
 	        }
 	    }
 	    
-	    System.out.println(java.util.Arrays.toString(list));
-	    System.out.println(ni);
+	    System.out.print(java.util.Arrays.toString(list));
+	    System.out.print("  Index of Pivot " + ni);
 	    return ni;
 	}
 	
