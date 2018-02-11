@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class tester 
 {
@@ -5,15 +6,29 @@ public class tester
 	public static void main(String[] args) 
 	{
 		//Testing Code
-		String [] list1 = { "b","ab", "cc" };
-		String [] list2 = { "a", "a", "c"};
-	//	merge(list1,list2);
+		String [] test1 = { "apple","cucumber", "microsoft", "zorro" };
+		String [] test2 = { "banana", "cherry", "mahogany","oreos", "pinata"};
+		int [] test3 = {3,4,2,7,12,22,0,1};
 		
-		int [] listy = {3,4,2,7,12,22,0,1};
-		partition(listy);
+		//Merge Test
+		long start = System.nanoTime();
+		String [] mresult = merge(test1,test2);
+		long end = System.nanoTime();
+		long time = end-start;
+		System.out.println("Merge Test Result: "+Arrays.toString(mresult));
+		System.out.println("									Time Taken: " + time + " nanoseconds");
+
+		
+		//Partition Test
+		start = System.nanoTime();
+		int pps = partition(test3);
+		end = System.nanoTime();
+		time = end = start;
+		System.out.println("Partition Test Result: "+Arrays.toString(test3) + " & Pivot Position: " + pps);
+		System.out.println("									Time Taken: " + time + " nanoseconds");
 	}
 
-	public static void merge(String [] list1, String [] list2) 
+	public static String[] merge(String [] list1, String [] list2) 
 	{
 		//Precondition : Both lists are sorted
 		//Takes my will to live and destroys it
@@ -33,25 +48,15 @@ public class tester
 				r++;
 			}			
 			
-			if(list1[l].compareTo(list2[r]) < 0) 
+			else
 			{
 				full[j] = list1[l];
 				j++;
 				l++;
 			}
 		}
-		
-		if(r == list2.length)
-		{
-			for(int m = j; m < full.length;m++);
-		}
-		if(l == list1.length)
-		{
-			for(int m = j; m < full.length;m++);
-		}
-		
-		//return full;
-		System.out.println(java.util.Arrays.toString(full));
+	
+		return full;
 	}
 	
 	public static int partition(int [] list)
@@ -81,9 +86,6 @@ public class tester
 	            i--;
 	        }
 	    }
-	    
-	    System.out.print(java.util.Arrays.toString(list));
-	    System.out.print("  Index of Pivot " + ni);
 	    return ni;
 	}
 	
