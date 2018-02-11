@@ -64,7 +64,6 @@ public class tester
 		//Takes an array, picks first number as pivot and puts smaller numbers on left side, bigger on right
 		//Why is the run time so long did I do it wrong?
 	    int base = list[0];    
-	    int temp = 0;
 	    int ni = 0;
 	    int last = list.length-1;
 
@@ -72,16 +71,12 @@ public class tester
 	    {
 	        if(list[i] <= base)
 	        {
-	            temp = list[i];
-	            list[i] = base;
-	            list[i-1] = temp;             
+	           swapperi(list,i,i-1);            
 	            ni = i;
 	        } 
 	        else if(list[i] > base && last > i)
 	        {
-	            temp = list[i];
-	            list[i] = list[last];
-	            list[last] = temp;
+	            swapperi(list, i, last);
 	            last--;
 	            i--;
 	        }
