@@ -31,9 +31,9 @@ public class tester
 	public static String[] merge(String [] list1, String [] list2) 
 	{
 		//Precondition : Both lists are sorted
-		//Takes my will to live and destroys it
+		//Takes two arrays and merges them in ascending order
 	
-		String [] full = new String [(list1.length) + (list2.length)];
+		String [] full = new String [(list1.length) + (list2.length)-1]; //i made it work but am confused about why its minus 1 and not 2
 		
 		int j = 0;
 		int l = 0;
@@ -62,7 +62,7 @@ public class tester
 	public static int partition(int [] list)
 	{
 		//Takes an array, picks first number as pivot and puts smaller numbers on left side, bigger on right
-		
+		//Why is the run time so long did I do it wrong?
 	    int base = list[0];    
 	    int temp = 0;
 	    int ni = 0;
