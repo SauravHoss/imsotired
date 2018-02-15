@@ -6,8 +6,8 @@ public class tester
 	public static void main(String[] args) 
 	{
 		//Testing Code
-		String [] test1 = { "apple","cucumber", "microsoft", "zorro" };
-		String [] test2 = { "banana", "cherry", "mahogany","oreos", "pinata"};
+		String [] test1 = { "gpple","cucumber", "microsoft", "zorro" };
+		String [] test2 = { "banana", "rherry", "mahogany","oreos", "pinata"};
 		int [] test3 = {3,4,2,7,12,22,0,1};
 		
 		//Merge Test
@@ -33,7 +33,7 @@ public class tester
 		//Precondition : Both lists are sorted
 		//Takes two arrays and merges them in ascending order
 	
-		String [] full = new String [(list1.length) + (list2.length)-1]; //i made it work but am confused about why its minus 1 and not 2
+		String [] full = new String [(list1.length) + (list2.length)]; //i made it work but am confused about why its minus 1 and not 2
 		
 		int j = 0;
 		int l = 0;
@@ -55,7 +55,19 @@ public class tester
 				l++;
 			}
 		}
+		
+		while(l < list1.length-1) 
+		{
+			full[j] = list1[l];
+			l++;
+		}
 	
+		while(r < list2.length-1) 
+		{
+			full[j] = list2[r];
+			r++;
+		}
+		
 		return full;
 	}
 	
