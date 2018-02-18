@@ -6,8 +6,8 @@ public class tester
 	public static void main(String[] args) 
 	{
 		//Testing Code
-		String [] test1 = { "gpple","cucumber", "microsoft", "zorro" };
-		String [] test2 = { "banana", "rherry", "mahogany","oreos", "pinata"};
+		String [] test1 = { "apple","cucumber", "microsoft", "zorro" };
+		String [] test2 = { "banana", "cherry", "mahogany","oreos", "pinata"};
 		int [] test3 = {3,4,2,7,12,22,0,1};
 		
 		//Merge Test
@@ -47,7 +47,6 @@ public class tester
 				j++;
 				r++;
 			}			
-			
 			else
 			{
 				full[j] = list1[l];
@@ -56,18 +55,19 @@ public class tester
 			}
 		}
 		
-		while(l < list1.length-1) 
+		while(j < full.length && l < list1.length) 
 		{
 			full[j] = list1[l];
+			j++;
 			l++;
 		}
-	
-		while(r < list2.length-1) 
+		
+		while(j < full.length && r < list2.length) 
 		{
 			full[j] = list2[r];
+			j++;
 			r++;
 		}
-		
 		return full;
 	}
 	
