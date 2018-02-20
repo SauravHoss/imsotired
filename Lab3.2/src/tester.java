@@ -21,13 +21,14 @@ public class tester
 		
 		//Partition Test
 		start = System.nanoTime();
-		int pps = partition(test3);
+		int pps = partition(test3,0,test3.length-1);
 		end = System.nanoTime();
 		time = end = start;
 		System.out.println("Partition Test Result: "+Arrays.toString(test3) + " & Pivot Position: " + pps);
 		System.out.println("									Time Taken: " + time + " nanoseconds");
 	}
 
+	//Merges two arrays
 	public static String[] merge(String [] list1, String [] list2) 
 	{
 		//Precondition : Both lists are sorted
@@ -71,30 +72,42 @@ public class tester
 		return full;
 	}
 	
-	public static int partition(int [] list)
-	{
-		//Takes an array, picks first number as pivot and puts smaller numbers on left side, bigger on right
-		//Why is the run time so long did I do it wrong?
-	    int base = list[0];    
-	    int ni = 0;
-	    int last = list.length-1;
+	//Takes an array, calls first number pivot and places bigger numbers to the right, and the smaller numbers to the left
+	 public static int partition(int[] list, int front,int back) 
+	 {
+		 int low = front + 1;
+	     int pivot = list[front];
 
-	    for(int i = 1; i < list.length; i++)
-	    {
-	        if(list[i] <= base)
-	        {
-	           swapperi(list,i,i-1);            
-	            ni = i;
-	        } 
-	        else if(list[i] > base && last > i)
-	        {
-	            swapperi(list, i, last);
-	            last--;
-	            i--;
-	        }
-	    }
-	    return ni;
-	}
+	     while (back > low) 
+	     {
+	    	 while (low <= back && list[low] <= pivot) 
+	    	 {
+	    		 low++;
+	    	 }
+	         while (low <= back && list[back] > pivot) 
+	         {
+	        	 back--;
+	         }
+	         if (back > low) 
+	         {
+	        	 swapperi(list,back,low);
+	         }
+	     }
+
+	     while (back >= low && list[back] >= pivot)
+	     {
+	    	 back--;   
+	     }
+	     if (back > front)
+	     {
+	    	 swapperi(list,back,front);
+	    	 return back;
+	     } 
+	     else   
+	     {
+	    	 return front;
+	     }
+	 }
 	
 	//Swaps two items in an array of integers
 		public static void swapperi(int [] arr, int x, int y) 
